@@ -1,0 +1,13 @@
+Właściwości requestu:
+boolean RealTime    //Niektóre procesy będą real time, większość nie
+int deadline        //W przypadku procesów nie real time ignorowane
+int blockNumber     //Numer bloku do którego żądanie chce uzyskać dostęp na dysku
+int arrivalTime     //Czas aktywacji procesu
+
+FCFS:
+Dodaj wszystkie procesy z arrivalTime=0 do aktywnych
+1. Posortuj procesy według najmniejszego arrivalTime
+2. Zacznij przemieszczać głowice aż dojdziesz do odpowiedniej lokalizacji procesu, ignoruj wszystko inne.
+3. Kiedy dojdziesz do pozycji docelowej, usuń ten request, powrót do kroku 1.
+
+
