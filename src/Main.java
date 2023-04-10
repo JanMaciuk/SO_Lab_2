@@ -31,7 +31,7 @@ public class Main {
     static int requestsNumber = 500;
     static int realTimeProbability = 5; // value in percent (1-100)
     static int runAmount = 10;  //How many times to run the simulation
-    static int discSize = requestsNumber*10; // Concentration of requests per disc space
+    static int discSize = requestsNumber*5; // Concentration of requests per disc space
     static int discHeadPosition = ThreadLocalRandom.current().nextInt(0, discSize);
     public static void main(String[] args) {
         int realTimeRequestsNumber = 0;
@@ -96,7 +96,7 @@ public class Main {
             randomSeed = ThreadLocalRandom.current().nextInt(0,101);   // Reset the random seed after each use
             int deadline = ThreadLocalRandom.current().nextInt(discSize/2, discSize);              //~40% for medium deadline
             if (randomSeed<20) {deadline = ThreadLocalRandom.current().nextInt(10, discSize/2);}      //~20% for very short deadline
-            else if (randomSeed>60) {deadline = ThreadLocalRandom.current().nextInt(discSize, discSize*4);} //~40% for very long deadline
+            else if (randomSeed>60) {deadline = ThreadLocalRandom.current().nextInt(discSize, discSize*2);} //~40% for very long deadline
             if(!realTime) {deadline = discSize*10;} // for non-real-time requests, deadline is "infinite", its ignored anyway
 
             int blockNumber = ThreadLocalRandom.current().nextInt(1, discSize);
